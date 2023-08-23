@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodieFanatix</title>
+    
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('images/123.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .intro {
+    animation: slideIn 5s forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .menu {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    max-width: 33%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .item {
+    cursor: pointer;
+  }
+
+  .item img {
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .item:hover img {
+    opacity: 1;
+    transform: scale(1.1); /* Added zoom effect */
+  }
+
+  .ingredients {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+  }
+    
+  .ingredients ul {
+    list-style: disc; 
+    margin-left: 20px;
+  }
+    
+  .h1 { 
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    transition: text-shadow 0.3s ease-in-out;
+  }
+    
+  .h1:hover {
+    text-shadow: 0 0 20px yellow;
+  }
+
+ .glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transition: text-shadow 0.3s ease;
+}
+
+.glow:hover {
+  text-shadow: 0 0 20px yellow; 
+}
+
+  .main-image {
+    width: 200px;
+    height: auto; 
+    margin-top: 10px; 
+    transition: transform 0.6s ease; 
+  }
+
+  .main-image:hover {
+    transform: scale(1.3); 
+  }
+  
+  .description {
+    text-align: left;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  @keyframes slide-in {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-in {
+    animation: slide-in 0.5s ease-in-out forwards;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="menu">
+    <h1 class="h1">About Claire</h1> 
+    <img src="images/claire.jpg" alt="claire" class="main-image">
+    <p class="description">
+      Greetings! I'm a passionate traveler and an avid food lover, always in search of thrilling escapades and irresistible culinary experiences. Come join me on my global journey, where I uncover the world's treasures one delectable dish at a time. Armed with my camera, I capture the vivid hues, alluring scents, and delicate flavors that grace the destinations I explore. From savoring street delicacies in bustling markets to indulging in haute cuisine, I'm here to guide you through an immersive sensory odyssey unlike any other. Let's embark together on a shared voyage of flavors and travels, where every photograph I share narrates a tale waiting to be discovered.
+    </p>
+  </div>
+  <div class="items">
+    <div class="item" onclick="showIngredients('Yam Pla Dook Foo')">
+      <h2 class="glow">Thailand</h2>
+      <img src="images/Thailand.jpeg" alt="Thailand">
+    </div>
+    <div class="item" onclick="showIngredients('Kung Pao Chicken')">
+      <h2 class="glow">China</h2>
+      <img src="images/China.jpeg" alt="China">
+    </div>
+    <div class="item" onclick="showIngredients('Chilaquiles')">
+      <h2 class="glow">Mexico</h2>
+      <img src="images/Mexico.jpeg" alt="Mexico">
+    </div>
+    <div class="item" onclick="showIngredients('Bobotie')">
+      <h2 class="glow">South Africa</h2>
+      <img src="images/South%20africa.jpeg" alt="South Africa">
+    </div>
+  </div>
+  <div class="ingredients" id="ingredients">
+    
+  </div>
+</div>
+<script>
+  function showIngredients(itemName) {
+    const ingredientsContainer = document.getElementById('ingredients');
+    const ingredients = {
+      'Yam Pla Dook Foo': '<h1>Yam Pla Dook Foo Ingredients:</h1><br>' +
+        // ... remaining ingredient details ...
+    };
+    
+    const ingredientText = ingredients[itemName];
+    const ingredientsList = ingredientText.split('<br>');
+    let index = 0;
+
+    const showNextIngredient = () => {
+      if (index < ingredientsList.length) {
+        const ingredient = ingredientsList[index];
+        ingredientsContainer.innerHTML += ingredient + '<br>';
+        index++;
+        setTimeout(showNextIngredient, 1000); 
+      }
+    };
+
+    ingredientsContainer.innerHTML = ''; 
+    showNextIngredient();
+  }
+</script>
+</body>
+</html>

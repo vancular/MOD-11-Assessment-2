@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.food-menu {
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.food-menu h2 {
+  color: #666;
+  margin: 30px auto 30px auto;
+}
+
+.menu-item {
+  position: relative;
+  margin: 15px auto 15px auto;
+  text-align: center;
+  width: 280px;
+  height: 280px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.fruits {
+  background-image: url("https://s3.amazonaws.com/projects.loratadin.com/coffeeshop/images/fruits.jpg");
+}
+
+.pasta {
+  background-image: url("https://s3.amazonaws.com/projects.loratadin.com/coffeeshop/images/pasta.jpg");
+}
+
+.steak {
+  background-image: url("https://s3.amazonaws.com/projects.loratadin.com/coffeeshop/images/steak.jpg");
+}
+
+.menu-logo {
+  position: absolute;
+  display: inline-block;
+  width: 16%;
+  top: 14%;
+  left: 42%;
+}
+
+.menu span {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  color: #d9d9d9;
+}
+
+.fruits span {
+  transition: transform 900ms ease-in-out;
+}
+
+.fruits:hover span {
+  transform: scale(1.5, 1.5) translateY(20px);
+}
+
+.fruits:hover .first-frame {
+  opacity: 1;
+}
+
+.first-frame {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 83%;
+  height: 81%;
+  border: 2px solid #f6bbbb;
+  z-index: 1;
+  opacity: 0;
+}
+
+.first-frame p {
+  color: #d9d9d9;
+  padding-top: 60%;
+}
+
+.second-frame {
+  position: absolute;
+  top: 51%;
+  left: 9%;
+  border-left: 1px #f6bbbb solid;
+  height: 40%;
+  z-index: 1;
+  opacity: 0;
+}
+
+.second-frame p {
+  color: #f6bbbb;
+  font-size: 20px;
+  padding-left: 6%;
+  padding-bottom: 20%;
+}
+
+.pasta:hover .second-frame {
+  opacity: 1;
+}
+
+.pasta span {
+  transition: transform 900ms ease-in-out;
+}
+
+.pasta:hover span {
+  transform: scale(1.5, 1.5) translateX(-12%) translateY(395%);
+}
+
+.pasta:hover {
+  opacity: 0.7;
+}
+
+.steak .decor-line1 {
+  top: 8%;
+  left: 8%;
+}
+
+.steak .decor-line2 {
+  top: 50%;
+  right: 7%;
+}
+
+.steak .decor-line1,
+.steak .decor-line2 {
+  position: absolute;
+  width: 0.5%;
+  height: 0.5%;
+  z-index: 1;
+  opacity: 0;
+  background-color: #f6bbbb;
+  animation: mydecor 2s ease-in-out 0s infinite;
+  animation-direction: alternate;
+}
+
+@keyframes mydecor {
+  from {
+    width: 1%;
+  }
+  to {
+    width: 85%;
+  }
+}
+
+.steak:hover .decor-line1,
+.steak:hover .decor-line2 {
+  opacity: 1;
+}
+@media /* medium */ (min-width: 451px) {
+  .food-menu {
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  .food-menu h2 {
+    margin: 60px auto 40px auto;
+  }
+  .menu-item {
+    width: 400px;
+    height: 400px;
+    margin: 50px auto 50px auto;
+  }
+  .menu span {
+    left: 36%;
+  }
+  .second-frame p {
+    font-size: 24px;
+    padding-left: 20%;
+  }
+  .pasta:hover span {
+    transform: scale(1.5, 1.5) translateX(-14%) translateY(550%);
+  }
+  .second-frame {
+    left: 8%;
+    border-left: 2px #f6bbbb solid;
+  }
+}
+@media /* large */ (min-width: 769px) {
+  .food-menu {
+    padding-bottom: 80px;
+    text-align: center;
+  }
+  .food-menu h2 {
+    margin: 80px auto 40px auto;
+  }
+  .menu-wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+  .menu-item {
+    width: 250px;
+    height: 250px;
+  }
+  .menu span {
+    left: 30%;
+  }
+  .second-frame p {
+    font-size: 16px;
+    padding-left: 17%;
+  }
+  .pasta:hover span {
+    transform: scale(1.5, 1.5) translateX(-4%) translateY(350%);
+  }
+}
+@media /* extra-large */ (min-width: 1025px) {
+    .food-menu {
+    padding-bottom: 100px;
+  }
+  .food-menu h2 {
+    margin: 60px auto 40px auto;
+  }
+  .menu-item {
+    width: 300px;
+    height: 300px;
+  }
+  .menu-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .menu span {
+    left: 32%;
+  }
+  .second-frame p {
+    font-size: 17px;
+  }
+  .pasta:hover span {
+    transform: scale(1.5, 1.5) translateX(-12%) translateY(450%);
+  }
+}
